@@ -1,0 +1,30 @@
+<div class="  w-full flex flex-col-reverse md:flex-row">
+  <div class=" w-full md:w-3/6 bg-gray-200">
+    <img src="../../../assets/img_layout_login.png" class="h-screen w-full" />
+  </div>
+  <div class=" w-full p-10 md:w-3/6 bg-gray-200 flex justify-center">
+    <div class="flex  items-center">
+      <div class="flex flex-col">
+        <h1 class="text-primary text-lg font-bold">Iniciar sesión en Coink</h1>
+        <span class="pt-3 text-sm font-light">Correo electrónico </span>
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Placeholder">
+          <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
+        <span class="pt-3 text-sm font-light">Contraseña</span>
+        <mat-form-field appearance="outline">
+          <input matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-checkbox class="text-primary pt-4"> Recordarme</mat-checkbox>
+        <div class="pt-3 w-full">
+          <button mat-button class="bg-primary text-blanco-artico rounded-full  pt-10 w-full" (click)="goToAdmin()">Iniciar sesión </button>
+        </div>
+        <span class="text-primary text-center pt-9">¿Olvidaste tu contraseña?</span>
+      </div>
+    </div>
+  </div>
+</div>
