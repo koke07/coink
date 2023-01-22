@@ -40,7 +40,6 @@ export class CoinkTestAdminComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'species', 'status', 'gender'];
   dataSource=new MatTableDataSource(ELEMENT_DATA);
-  //= new MatTableDataSource(ELEMENT_DATA);
 
 
   constructor(private coinkTestService:CoinkTestService) { }
