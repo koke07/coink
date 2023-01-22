@@ -1,1 +1,112 @@
-<p>coink-test-admin works!</p>
+<div class="bg-primary w-screen h-14">
+ hola
+</div>
+
+
+<div class="flex">
+  <div class="w-1/4 h-screen">
+    <mat-card class="flex justify-center items-center w-full">
+      <img class="w-24 h-24 rounded-full " src="../../../assets/avatar.png" alt="Rounded avatar">
+      <span>Jeff</span>
+    </mat-card>
+
+    <cdk-accordion class="example-accordion pt-10">
+      <cdk-accordion-item
+        *ngFor="let item of items; let index = index;"
+        #accordionItem="cdkAccordionItem"
+        class="example-accordion-item"
+        role="button"
+        tabindex="0"
+        [attr.id]="'accordion-header-' + index"
+        [attr.aria-expanded]="accordionItem.expanded"
+        [attr.aria-controls]="'accordion-body-' + index">
+        <div class="example-accordion-item-header text-primary" (click)="accordionItem.toggle()">
+          {{ item }}
+        </div>
+        <div
+          class="example-accordion-item-body text-primary"
+          role="region"
+          [style.display]="accordionItem.expanded ? '' : 'none'"
+          [attr.id]="'accordion-body-' + index"
+          [attr.aria-labelledby]="'accordion-header-' + index">
+          Crear Dispensador
+        </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+    <mat-divider [vertical]="true"></mat-divider>
+  </div>
+  <div class="w-3/4 bg-blanco-artico">
+    <div class="pl-9">
+
+
+   <span> Tarjetas Visa Dispensadores / <span class="text-primary">Solicitud tarjetas</span></span>
+
+   <h2>Solicutud de tarjetas </h2>
+
+   <h3> Buscar </h3>
+
+   <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>First name</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Long Last Name That Will Be Truncated</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+  </tr></table>
+
+  <section class="w-full flex space-x-5">
+    <button mat-stroked-button color="primary">Limpiar filtros </button>
+    <button mat-raised-button color="primary"> Buscar </button>
+  </section>
+
+  <section class="flex flex-row-reverse w-full pr-3">
+    <button mat-stroked-button color="primary">Solicitar tarjetas </button>
+  </section>
+
+<!---- table -->
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="species">
+      <th mat-header-cell *matHeaderCellDef> species</th>
+      <td mat-cell *matCellDef="let element"> {{element.species}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+ </div>
+  </div>
+</div>
